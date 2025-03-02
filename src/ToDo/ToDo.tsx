@@ -15,7 +15,7 @@ function ToDo({ darkMode }: { darkMode: boolean }) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center absolute top-22">
+    <div className="flex flex-col justify-center items-center absolute top-22 sm:left-20 md:left-50 lg:left-[30rem]">
       <div className="w-80 flex items-center">
         <button
           className="absolute left-11 bg-VeryLightGray border border-DarkGrayishBlue h-5 w-5 rounded-full cursor-pointer"

@@ -14,7 +14,7 @@ function Header({ darkMode, setDarkMode }: HeaderProps) {
           : "bg-[url(/images/bg-mobile-light.jpg)]"
       } bg-no-repeat bg-center bg-cover  p-5 h-50`}
     >
-      <div className="flex justify-between mt-5">
+      <div className="flex justify-between mt-5 sm:justify-evenly">
         <h1 className="text-VeryLightGray uppercase text-2xl tracking-[0.5rem] font-bold">
           Todo
         </h1>
