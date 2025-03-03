@@ -47,7 +47,7 @@ function ToDo({ darkMode }: { darkMode: boolean }) {
                     : "bg-VeryLightGray text-DarkGrayishBlue"
                 }`}
               >
-                <button className="border-2 border-VeryLightGrayishBlue h-6 w-6 rounded-full"></button>
+                <button className="border-2 border-VeryLightGrayishBlue h-6 w-6 rounded-full flex-shrink-0"></button>
                 <p>{t}</p>
 
                 <button
