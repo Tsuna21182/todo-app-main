@@ -10,8 +10,8 @@ function Header({ darkMode, setDarkMode }: HeaderProps) {
     <header
       className={`${
         darkMode
-          ? "bg-[url(/images/bg-mobile-dark.jpg)]"
-          : "bg-[url(/images/bg-mobile-light.jpg)]"
+          ? "bg-[url(/images/bg-mobile-dark.jpg)] md:bg-[url(/images/bg-desktop-dark.jpg)]"
+          : "bg-[url(/images/bg-mobile-light.jpg)] md:bg-[url(/images/bg-desktop-light.jpg)]"
       } bg-no-repeat bg-center bg-cover  p-5 h-50`}
     >
       <div className="flex justify-between mt-5 sm:justify-evenly">

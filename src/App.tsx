@@ -1,6 +1,7 @@
 import Header from "./Header/Header";
 import { useState, useEffect } from "react";
 import ToDo from "./ToDo/ToDo";
+import TodoHook from "./Hooks/TodoHook";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -18,7 +19,7 @@ function App() {
   return (
     <>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-      <ToDo darkMode={darkMode} />
+      <ToDo darkMode={darkMode} TodoHook={TodoHook} />
     </>
   );
 }

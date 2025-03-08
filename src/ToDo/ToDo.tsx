@@ -1,21 +1,28 @@
-import { useState } from "react";
-
-function ToDo({ darkMode }: { darkMode: boolean }) {
-  const [task, setTask] = useState<string>("");
-  const [tasks, setTasks] = useState<string[]>([]);
-
-  const handleAddTask = () => {
-    if (task.trim() === "") return;
-    setTasks([...tasks, task]);
-    setTask("");
+type ToDoProps = {
+  darkMode: boolean;
+  TodoHook: () => {
+    task: string;
+    tasks: string[];
+    setTask: React.Dispatch<React.SetStateAction<string>>;
+    setTasks: React.Dispatch<React.SetStateAction<string[]>>;
+    handleAddTask: () => void;
+    handleRemoveTask: (index: number) => void;
+    getTotalTasks: () => number;
   };
+};
 
-  const handleRemoveTask = (index: number) => {
-    setTasks(tasks.filter((_, i) => i !== index));
-  };
+function ToDo({ darkMode, TodoHook }: ToDoProps) {
+  const {
+    task,
+    tasks,
+    setTask,
+    handleAddTask,
+    handleRemoveTask,
+    getTotalTasks,
+  } = TodoHook();
 
   return (
-    <div className="flex flex-col justify-center items-center absolute top-22 sm:left-20 md:left-50 lg:left-[30rem]">
+    <div className="flex flex-col justify-center items-center absolute top-22 sm:left-40 md:left-50 lg:left-[20rem] xl:left-[30rem] 2xl:left-[40rem]">
       <div className="w-80 flex items-center">
         <button
           className="absolute left-11 bg-VeryLightGray border border-DarkGrayishBlue h-5 w-5 rounded-full cursor-pointer"
@@ -41,7 +48,7 @@ function ToDo({ darkMode }: { darkMode: boolean }) {
             {tasks.map((t, index) => (
               <li
                 key={index}
-                className={`flex justify-between items-center py-3 px-8 w-80 rounded-lg ${
+                className={`flex justify-between items-center py-3 px-8 w-80 rounded-lg transform hover:translate-0.5 duration-300 cursor-pointer ${
                   darkMode
                     ? "bg-VeryDarkGrayishBlue text-white"
                     : "bg-VeryLightGray text-DarkGrayishBlue"
@@ -63,6 +70,15 @@ function ToDo({ darkMode }: { darkMode: boolean }) {
                 </button>
               </li>
             ))}
+            <p
+              className={`text-sm ${
+                darkMode
+                  ? "bg-VeryDarkGrayishBlue text-white"
+                  : "bg-VeryLightGray text-DarkGrayishBlue"
+              }`}
+            >
+              {getTotalTasks()} items left
+            </p>
           </ul>
         ) : (
           <p className="text-center font-bold text-VeryDarkBlue">
